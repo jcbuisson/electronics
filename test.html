@@ -9,6 +9,7 @@
 </html>
 
 <script>
-Puck.write('LED1.set();\n');
+ 
+Puck.eval("BTN.read()",function(x) { console.log(x); });
  
 </script>
