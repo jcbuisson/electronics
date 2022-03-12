@@ -7,13 +7,15 @@
 document.addEventListener('DOMContentLoaded', function() {
    const buttons = document.getElementsByTagName('button')
    const searchButton = buttons[0]
+   
+   const serviceUUID = "19B10010-E8F2-537E-4F6C-D104768A1214"
 
    searchButton.onclick = function() {
       navigator.bluetooth.requestDevice({
          filters: [{
             name: "ButtonLED",
          }],
-         optionalServices: ['battery_service'] // Required to access service later.
+         optionalServices: [serviceUUID] // Required to access service later.
       })
       .then(device => {
          console.log('device', device);
@@ -23,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(server => {
          console.log('server', server);
          // Getting Battery Service…
-         //return server.getPrimaryService('19B10010-E8F2-537E-4F6C-D104768A1214');
-         return server.getPrimaryService('543D55F5-DF2B-960B-4B23-5A810A9AAADA');
+         return server.getPrimaryService(serviceUUID);
+         //return server.getPrimaryService('543D55F5-DF2B-960B-4B23-5A810A9AAADA');
       })
       .then(service => {
          console.log('service', service);
