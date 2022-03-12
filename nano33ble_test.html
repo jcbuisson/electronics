@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
    const buttons = document.getElementsByTagName('button')
    const searchButton = buttons[0]
    
-   const serviceUUID = "19b10010-e8f2-537e-4f6c-d104768a1214"
-   const serviceUUID = "543d55f5-df2b-960b-4b23-5a810a9aaada');
+   const serviceUUID = "190c";
+   const characteisticUUID = "2a1c";
 
    searchButton.onclick = function() {
       navigator.bluetooth.requestDevice({
          filters: [{
-            name: "ButtonLED",
+            name: "ArduinoTemp",
          }],
          optionalServices: [serviceUUID] // Required to access service later.
       })
