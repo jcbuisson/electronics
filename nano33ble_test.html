@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(server => {
          console.log('server', server);
          // Getting Battery Service…
-         return server.getPrimaryService('19B10010-E8F2-537E-4F6C-D104768A1214');
+         //return server.getPrimaryService('19B10010-E8F2-537E-4F6C-D104768A1214');
+         return server.getPrimaryService('543D55F5-DF2B-960B-4B23-5A810A9AAADA');
       })
       .then(service => {
          console.log('service', service);
