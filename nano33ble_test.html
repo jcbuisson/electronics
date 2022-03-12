@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
    const buttons = document.getElementsByTagName('button')
    const searchButton = buttons[0]
    
-   const serviceUUID = 0x180f;
-   const characteristicUUID = 0x2a19;
+   const serviceUUID = 'battery';
+   const characteristicUUID = 'battery_level';
 
    searchButton.onclick = function() {
       navigator.bluetooth.requestDevice({
