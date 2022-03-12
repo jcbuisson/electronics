@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
          return service.getCharacteristic(characteristicUUID);
       })
       .then(characteristic => {
+         characteristic.addEventListener('characteristicvaluechanged', handleBatteryLevelChanged);
          // Reading value…
          return characteristic.readValue();
       })
@@ -45,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
    }
 
-   /*const selectElt = document.getElementsByTagName('select')[0]
-   selectElt.addEventListener('change', function(ev) {
-      document.body.style.backgroundColor = ev.target.value
-   })*/
+   function handleBatteryLevelChanged(event) {
+      const value = event.target.value.getUint8(0);
+      console.log('value' + value);
+   }
 })
  
 </script>
