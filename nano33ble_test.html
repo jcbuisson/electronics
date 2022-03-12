@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
    searchButton.onclick = function() {
       navigator.bluetooth.requestDevice({
-         acceptAllDevices: true,
+         name: "ButtonLED",
          optionalServices: ['battery_service'] // Required to access service later.
       })
       .then(device => { console.log('device', device) })
