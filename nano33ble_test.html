@@ -22,14 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(server => {
          // Getting Battery Service…
-         return server.getPrimaryService('battery_service');
+         return server.getPrimaryService('19B10010-E8F2-537E-4F6C-D104768A1214');
       })
       .then(service => {
          // Getting Characteristic…
-         return service.getCharacteristic('battery_level');
+         return service.getCharacteristic('19B10012-E8F2-537E-4F6C-D104768A1214');
       })
       .then(characteristic => {
-         // Reading Battery Level…
+         // Reading value…
          return characteristic.readValue();
       })
       .then(value => {
