@@ -1,0 +1,21 @@
+<html>
+  <button id="button">Search device...</button>
+</html>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+   const buttons = document.getElementsByTagName('button')
+   const searchButton = buttons[0]
+
+   searchButton.onclick = function() {
+      alert('aze')
+   }
+
+   const selectElt = document.getElementsByTagName('select')[0]
+   selectElt.addEventListener('change', function(ev) {
+      document.body.style.backgroundColor = ev.target.value
+   })
+})
+ 
+</script>
