@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
          acceptAllDevices: true,
          optionalServices: ['battery_service'] // Required to access service later.
       })
-      .then(device => { console.log('device', device })
+      .then(device => { console.log('device', device) })
       .catch(error => { console.error(error); });
    }
 
