@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
          console.error(error);
       });
    }
-
-   function handleBatteryLevelChanged(event) {
-      const value = event.target.value.getUint8(0);
-      console.log('value' + value);
-   }
 })
+
+function handleBatteryLevelChanged(event) {
+   const value = event.target.value.getUint8(0);
+   console.log('value' + value);
+}
  
 </script>
