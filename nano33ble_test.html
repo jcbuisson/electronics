@@ -10,11 +10,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
    searchButton.onclick = function() {
       navigator.bluetooth.requestDevice({
-         name: "ButtonLED",
+         filters: [{
+            name: "ButtonLED",
+         }],
          optionalServices: ['battery_service'] // Required to access service later.
       })
-      .then(device => { console.log('device', device) })
-      .catch(error => { console.error(error); });
+      .then(device => {
+         console.log('device', device);
+         // Attempts to connect to remote GATT Server.
+         return device.gatt.connect();
+      })
+      .then(server => {
+         // Getting Battery Service…
+         return server.getPrimaryService('battery_service');
+      })
+      .then(service => {
+         // Getting Characteristic…
+         return service.getCharacteristic('battery_level');
+      })
+      .then(characteristic => {
+         // Reading Battery Level…
+         return characteristic.readValue();
+      })
+      .then(value => {
+         console.log(`Value is ${value.getUint8(0)}`);
+      })
+      .catch(error => {
+         console.error(error);
+      });
    }
 
    /*const selectElt = document.getElementsByTagName('select')[0]
