@@ -21,10 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
          return device.gatt.connect();
       })
       .then(server => {
+         console.log('server', server);
          // Getting Battery Service…
          return server.getPrimaryService('19B10010-E8F2-537E-4F6C-D104768A1214');
       })
       .then(service => {
+         console.log('service', service);
          // Getting Characteristic…
          return service.getCharacteristic('19B10012-E8F2-537E-4F6C-D104768A1214');
       })
