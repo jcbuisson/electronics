@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
    const searchButton = buttons[0]
    
    const serviceUUID = 'battery_service';
-   const characteisticUUID = 'battery_level';
+   const characteristicUUID = 'battery_level';
 
    searchButton.onclick = function() {
       navigator.bluetooth.requestDevice({
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(service => {
          console.log('service', service);
          // Getting Characteristic…
-         return service.getCharacteristic('19B10012-E8F2-537E-4F6C-D104768A1214');
+         return service.getCharacteristic(characteristicUUID);
       })
       .then(characteristic => {
          // Reading value…
